@@ -1,6 +1,4 @@
 var http = require('http');
-var qrand = require('./lib/qrand.js');
-var qrand = require('./lib/qrand.js');
 
 function httpGetAsync(theUrl, callback)
 {

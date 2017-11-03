@@ -9,30 +9,10 @@
 	<% include ../partials/nav.ejs %>
 	
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		<script>
-		function startInterval() {
-			setInterval(function(){ qrand.getRandomInt(1, function(err, ints) {	console.log(ints.join(''));	}); }, 3000);
-		}
-		
-		$(function(){ // jQuery DOM ready
-		$('.test').click(function () { // click event for <a class="test">
-			var level = $(this).data('level'); // from data-level="N"
-			var url = '/test?level=' + escape(level);
-			console.log('client url:', url);
-		
-			// HTTP GET http://localhost:3000/test?level=
-			$.get(url, function (data) {
-			console.log('client data:', data); // browser console
-			});
-		
-			return false; // don't navigate to href="#"
-		});
-		});
-		</script>
 		
 		<div class='vis-container center'>
 			<button onclick="startInterval()">Start</button>
-			<script type="text/javascript" src="main.js"></script>
+			<script type="text/javascript" src="./js/main.js"></script>
 		</div>
 	
 	</body>

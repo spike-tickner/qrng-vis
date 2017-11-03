@@ -1,4 +1,5 @@
 var express = require('express');
+var qrand = require('./lib/qrand.js');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -17,4 +18,6 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-
+function startInterval() {
+	setInterval(function(){ qrand.getRandomInt(1, function(err, ints) {	console.log(ints.join(''));	}); }, 3000);
+}
