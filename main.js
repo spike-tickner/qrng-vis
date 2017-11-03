@@ -1,6 +1,6 @@
 var http = require('http');
-var qrand = require('../lib/qrand.js');
-var qrand = require('../lib/qrand.js');
+var qrand = require('./lib/qrand.js');
+var qrand = require('./lib/qrand.js');
 
 function httpGetAsync(theUrl, callback)
 {
@@ -18,6 +18,6 @@ http.createServer(function (req, res) {
 	qrand.getRandomInt(1, function(err, ints) {
 		console.log(ints.join(''));
 	});
-}).listen(8080);
+}).listen(5000);
 
 //https://qrng.anu.edu.au/API/jsonI.php?length=[array length]&type=[data type]&size=[block size]
