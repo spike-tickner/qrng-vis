@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<!-- Add header -->
+		<!-- Add header -->
 		<% include ../partials/header.ejs %>
 		
 		<!-- Load the Paper.js library -->
 		<script type="text/javascript" src="/js/paper-full.js"></script>
 		<!-- Load external PaperScript and associate it with qrng-canvas -->
 		<script type="text/paperscript" src="/js/vis.js" canvas="qrng-canvas"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	</head>
 	
 	<body>
-	<!-- Add nav -->
-	<% include ../partials/nav.ejs %>
-	
-	<div class='vis-container center'>
-		<canvas id="qrng-canvas" resize></canvas>
-	</div>
-	
-	<div id="button">Get this List</div>
-    <div id="response"></div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('#button').click(function() {
-            $.get(window.location.href + 'qrng', function(list) {
-                $('#response').html(list); // show the list
-            });
-        }); 
-    });
-    </script>
-	
-	
+		<!-- Add nav -->
+		<% include ../partials/nav.ejs %>
+		
+		<div class='vis-container center'>
+			<canvas id="qrng-canvas" resize></canvas>
+		</div>
+		
+		<div id="button">START</div>
+		<div id="response"></div>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$('#button').click(function() {
+				$.get(window.location.href + 'qrng', function(num) {
+					$('#response').html(num); // show the number generated
+				});
+			}); 
+		});
+		</script>
 	</body>
 </html>
 
