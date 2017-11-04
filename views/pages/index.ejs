@@ -1,22 +1,37 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<!-- Add header -->
 		<% include ../partials/header.ejs %>
+		
+		<!-- Load the Paper.js library -->
+		<script type="text/javascript" src="/js/paper-full.js"></script>
+		<!-- Load external PaperScript and associate it with qrng-canvas -->
+		<script type="text/paperscript" src="/js/vis.js" canvas="qrng-canvas"></script>
 	</head>
 	
 	<body>
-	
+	<!-- Add nav -->
 	<% include ../partials/nav.ejs %>
 	
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		
-		<div class='vis-container center'>
-			<button onclick="startInterval()">Start</button>
-			<script type="text/javascript" src="./js/main.js"></script>
-		</div>
+	<div class='vis-container center'>
+		<canvas id="qrng-canvas" resize></canvas>
+	</div>
+	
+	<div id="button">Get this List</div>
+    <div id="response"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#button').click(function() {
+            $.get(window.location.href + 'qrng', function(list) {
+                $('#response').html(list); // show the list
+            });
+        }); 
+    });
+    </script>
+	
 	
 	</body>
 </html>
-
-
 
